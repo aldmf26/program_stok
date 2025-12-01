@@ -10,6 +10,6 @@ class Cabang extends Model
     use HasFactory;
     protected $table = 'tb_cabang';
     protected $fillable = [
-        'nm_cabang', 'alamat', 'no_hp'
+        'nm_cabang', 'alamat', 'no_hp','pengelola'
     ];
 }

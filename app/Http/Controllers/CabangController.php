@@ -11,7 +11,7 @@ class CabangController extends Controller
     {
         $data = [
             'title' => 'Data Cabang',
-            'cabang' => Cabang::all(),
+            'cabang' => Cabang::orderBy('id_cabang', 'DESC')->get(),
         ];
         return view('cabang.cabang', $data);
     }
@@ -22,6 +22,7 @@ class CabangController extends Controller
             'nm_cabang' => $r->nm_cabang,
             'alamat' => $r->alamat,
             'no_hp' => $r->no_hp,
+            'pengelola' => $r->pengelola,
         ];
 
         Cabang::create($data);
@@ -35,6 +36,7 @@ class CabangController extends Controller
             'nm_cabang' => $r->nm_cabang,
             'alamat' => $r->alamat,
             'no_hp' => $r->no_hp,
+            'pengelola' => $r->pengelola,
         ];
 
         Cabang::where('id_cabang', $r->id_cabang)->update($data);

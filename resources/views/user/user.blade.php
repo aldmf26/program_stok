@@ -23,6 +23,7 @@
                                         <th>#</th>
                                         <th>Nama</th>
                                         <th>Username</th>
+                                        <th>Posisi</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -35,6 +36,7 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $u->nama }}</td>
                                             <td>{{ $u->username }}</td>
+                                            <td>{{ $u->username == 'admin' ? 'Admin' : 'Cabang' }}</td>
                                             <td><a onclick="return confirm('Apakah yakin ingin dihapus ?')"
                                                     href="{{ route('hapusUser', ['id_user' => $u->id]) }}"
                                                     class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> </a></td>
