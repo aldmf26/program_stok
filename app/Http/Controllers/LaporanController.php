@@ -14,18 +14,28 @@ class LaporanController extends Controller
 {
     public function lapPegawai(Request $r)
     {
+        $listPosisi = Pegawai::select('posisi')->groupBy('posisi')->get();
         $data = [
             'title' => 'Data Pegawai',
             'pegawai' => Pegawai::all(),
+            'listPosisi' => $listPosisi,
         ];
         return view('laporan.lapPegawai', $data);
     }
 
     public function exportPegawai(Request $r)
     {
+        $filter = $r->filter;
+
+        if ($filter == 'posisi') {
+            $pegawai = Pegawai::where('posisi', $r->posisi)->get();
+        } else {
+            $pegawai = Pegawai::all();
+        }
+
         $data = [
             'title' => 'Data Pegawai',
-            'pegawai' => Pegawai::all(),
+            'pegawai' => $pegawai,
         ];
         return view('laporan.exportPegawai', $data);
     }

@@ -85,7 +85,7 @@ Route::get('satuan', [SatuanController::class, 'index'])->name('satuan')->middle
 Route::post('tambahSatuan', [SatuanController::class, 'tambah'])->name('tambahSatuan')->middleware('auth');
 Route::post('editSatuan', [SatuanController::class, 'edit'])->name('editSatuan')->middleware('auth');
 Route::get('hapusSatuan', [SatuanController::class, 'hapus'])->name('hapusSatuan')->middleware('auth');
-
+ 
 Route::get('pemeliharaan', [PemeliharaanController::class, 'index'])->name('pemeliharaan')->middleware('auth');
 Route::post('tambahPemeliharaan', [PemeliharaanController::class, 'tambah'])->name('tambahPemeliharaan')->middleware('auth');
 Route::post('editPemeliharaan', [PemeliharaanController::class, 'edit'])->name('editPemeliharaan')->middleware('auth');
